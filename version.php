@@ -17,7 +17,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * @package   block_shop
+ * @package   block_shop_bills
  * @category  blocks
  * @author    Valery Fremaux (valery.fremaux@gmail.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,3 +28,6 @@ $plugin->requires  = 2014050800;        // Requires this Moodle version
 $plugin->component = 'block_shop_bills'; // Full name of the plugin (used for diagnostics)
 $plugin->maturity = MATURITY_BETA; // Full name of the plugin (used for diagnostics)
 $plugin->release = '2.7.0 (Build 2013050300)'; // Full name of the plugin (used for diagnostics)
+
+// Non moodle attributes.
+$plugin->codeincrement = '2.7.0000';

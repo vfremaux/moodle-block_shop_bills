@@ -68,12 +68,12 @@ class block_shop_bills extends block_list {
                 c.hasaccount = {$USER->id} AND
                 b.status IN ('PLACED', 'SOLDOUT', 'PREPROD', 'PENDING', 'COMPLETE', 'PARTIAL')
             ORDER BY
-                status, emissiondate
+                emissiondate
         ";
 
         if ($invoices = $DB->get_records_sql($sql)) {
             foreach ($invoices as $invoice) {
-                $invoicedate = date('Y/m/d h:i', $invoice->emissiondate);
+                $invoicedate = date('Y/m/d H:i', $invoice->emissiondate);
                 $invoicestr = $invoice->title;
                 $billurl = new moodle_url('/local/shop/front/view.php', array('view' => 'bill', 'id' => $this->config->shopinstance, 'billid' => $invoice->id));
                 $this->content->items[] = $invoicedate.' <a href="'.$billurl.'">'.$invoicestr.'</a> ('.sprintf('%0.2f', round($invoice->amount, 2)).')';
