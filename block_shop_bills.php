@@ -25,27 +25,27 @@ defined('MOODLE_INTERNAL') || die();
 
 class block_shop_bills extends block_list {
 
-    function init() {
+    public function init() {
         $this->title = get_string('blockname', 'block_shop_bills');
         $this->version = 2013022200;
     }
 
-    function applicable_formats() {
+    public function applicable_formats() {
         return array('all' => false, 'my' => true, 'course' => true);
     }
 
-    function specialization() {
+    public function specialization() {
         return false;
     }
 
-    function instance_allow_multiple() {
+    public function instance_allow_multiple() {
         return true;
     }
 
-    function get_content() {
-        global $USER, $CFG, $DB;
+    public function get_content() {
+        global $USER, $DB;
 
-        if ($this->content !== NULL) {
+        if ($this->content !== null) {
             return $this->content;
         }
         if (!isset($this->config) || empty($this->config->shopinstance)) {
@@ -68,15 +68,17 @@ class block_shop_bills extends block_list {
                 c.hasaccount = {$USER->id} AND
                 b.status IN ('PLACED', 'SOLDOUT', 'PREPROD', 'PENDING', 'COMPLETE', 'PARTIAL')
             ORDER BY
-                status, emissiondate
+                emissiondate
         ";
 
         if ($invoices = $DB->get_records_sql($sql)) {
             foreach ($invoices as $invoice) {
-                $invoicedate = date('Y/m/d h:i', $invoice->emissiondate);
+                $invoicedate = date('Y/m/d H:i', $invoice->emissiondate);
                 $invoicestr = $invoice->title;
-                $billurl = new moodle_url('/local/shop/front/view.php', array('view' => 'bill', 'id' => $this->config->shopinstance, 'billid' => $invoice->id));
-                $this->content->items[] = $invoicedate.' <a href="'.$billurl.'">'.$invoicestr.'</a> ('.sprintf('%0.2f', round($invoice->amount, 2)).')';
+                $params = array('view' => 'bill', 'id' => $this->config->shopinstance, 'billid' => $invoice->id);
+                $billurl = new moodle_url('/local/shop/front/view.php', $params);
+                $amount = sprintf('%0.2f', round($invoice->amount, 2));
+                $this->content->items[] = $invoicedate.' <a href="'.$billurl.'">'.$invoicestr.'</a> ('.$amount.')';
                 $this->content->icons[] = '';
             }
         } else {
@@ -86,15 +88,13 @@ class block_shop_bills extends block_list {
 
         $this->content->footer = '';
 
-        unset($filteropt); // memory footprint
-
         return $this->content;
     }
 
     /*
      * Hide the title bar when none set..
      */
-    function hide_header(){
+    public function hide_header() {
         return empty($this->config->title);
     }
 }
