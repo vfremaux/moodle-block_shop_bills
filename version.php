@@ -14,20 +14,22 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
+ * Version details.
+ *
  * @package   block_shop_bills
  * @category  blocks
  * @author    Valery Fremaux (valery.fremaux@gmail.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$plugin->version   = 2013050300;        // The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 2014050800;        // Requires this Moodle version
-$plugin->component = 'block_shop_bills'; // Full name of the plugin (used for diagnostics)
-$plugin->maturity = MATURITY_BETA; // Full name of the plugin (used for diagnostics)
-$plugin->release = '2.7.0 (Build 2013050300)'; // Full name of the plugin (used for diagnostics)
+defined('MOODLE_INTERNAL') || die();
+
+$plugin->version   = 2013050300;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->requires  = 2014050800;        // Requires this Moodle version.
+$plugin->component = 'block_shop_bills'; // Full name of the plugin (used for diagnostics).
+$plugin->maturity = MATURITY_BETA;
+$plugin->release = '2.7.0 (Build 2013050300)';
 
 // Non moodle attributes.
 $plugin->codeincrement = '2.7.0000';
