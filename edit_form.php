@@ -14,14 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * @package   block_shop_bills
  * @category  blocks
  * @author    Valery Fremaux (valery.fremaux@gmail.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/local/shop/classes/Shop.class.php');
 
@@ -36,7 +36,7 @@ class block_shop_bills_edit_form extends block_edit_form {
         $mform->addElement('header', 'configheader', get_string('blocksettings', 'block'));
 
         $mform->addElement('text', 'config_title', get_string('title', 'block_shop_bills'));
-        $mform->setDefault('config_title', get_string('pluginname','block_shop_bills'));
+        $mform->setDefault('config_title', get_string('pluginname', 'block_shop_bills'));
         $mform->setType('config_title', PARAM_MULTILANG);
 
         $courseshops = Shop::get_instances();
