@@ -75,7 +75,7 @@ class block_shop_bills extends block_list {
             foreach ($invoices as $invoice) {
                 $invoicedate = date('Y/m/d H:i', $invoice->emissiondate);
                 $invoicestr = $invoice->title;
-                $params = array('view' => 'bill', 'id' => $this->config->shopinstance, 'billid' => $invoice->id);
+                $params = array('view' => 'bill', 'id' => $this->config->shopinstance, 'transid' => $invoice->transactionid);
                 $billurl = new moodle_url('/local/shop/front/view.php', $params);
                 $amount = sprintf('%0.2f', round($invoice->amount, 2));
                 $this->content->items[] = $invoicedate.' <a href="'.$billurl.'">'.$invoicestr.'</a> ('.$amount.')';
