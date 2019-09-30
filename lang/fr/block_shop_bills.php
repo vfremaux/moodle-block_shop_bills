@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package   block_shop
+ * @package   block_shop_bills
  * @category  blocks
  * @author    Valery Fremaux (valery.fremaux@gmail.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -23,6 +23,9 @@
 
 $string['shop_bills:addinstance'] = 'Ajouter un bloc Mes Factures';
 $string['shop_bills:myaddinstance'] = 'Ajouter un bloc Mes Factures à Ma page';
+
+// Privacy.
+$string['privacy:metadata'] = 'Le bloc Mes Factures ne détient directement aucune donnée relative aux utilisateurs.';
 
 $string['blockname'] = 'Mes transactions';
 $string['configshopinstance'] = 'Boutique';
