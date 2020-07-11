@@ -27,7 +27,7 @@ $string['shop_bills:myaddinstance'] = 'Add an instance to My Page';
 // Privacy.
 $string['privacy:metadata'] = 'The Shop Bills block does not directly store any personal data about any user.';
 
-$string['blockname'] = 'My transactions';
+$string['blockname'] = 'My bills';
 $string['title'] = 'Title';
 $string['configshopinstance'] = 'Course shop';
 $string['configtitle'] = 'Title';
@@ -35,4 +35,4 @@ $string['leaveblanktohide'] = 'Leave blank to hide';
 $string['nobills'] = 'No bills in your account';
 $string['noshops'] = 'No shops';
 $string['notconfigured'] = 'This block is not configured. A course shop instance MUST be assigned.';
-$string['pluginname'] = 'My bills';
+$string['pluginname'] = 'Moodle Shop: My bills';
