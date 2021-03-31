@@ -35,7 +35,9 @@ class block_shop_bills extends block_list {
     }
 
     public function specialization() {
-        return false;
+        if (!empty($this->config) && !empty($this->config->title)) {
+            $this->title = format_string($this->config->title);
+        }
     }
 
     public function instance_allow_multiple() {
@@ -65,17 +67,18 @@ class block_shop_bills extends block_list {
                 {local_shop_customer} c
             WHERE
                 b.customerid = c.id AND
-                c.hasaccount = {$USER->id} AND
-                b.status IN ('PLACED', 'SOLDOUT', 'PREPROD', 'PENDING', 'COMPLETE', 'PARTIAL')
+                c.hasaccount = ? AND
+                b.status IN ('PLACED', 'SOLDOUT', 'PREPROD', 'PENDING', 'COMPLETE', 'PARTIAL') AND
+                shopid = ?
             ORDER BY
                 emissiondate
         ";
 
-        if ($invoices = $DB->get_records_sql($sql)) {
+        if ($invoices = $DB->get_records_sql($sql, [$USER->id, $this->config->shopinstance])) {
             foreach ($invoices as $invoice) {
                 $invoicedate = date('Y/m/d H:i', $invoice->emissiondate);
                 $invoicestr = $invoice->title;
-                $params = array('view' => 'bill', 'id' => $this->config->shopinstance, 'transid' => $invoice->transactionid);
+                $params = array('view' => 'bill', 'shopid' => $this->config->shopinstance, 'transid' => $invoice->transactionid);
                 $billurl = new moodle_url('/local/shop/front/view.php', $params);
                 $amount = sprintf('%0.2f', round($invoice->amount, 2));
                 $this->content->items[] = $invoicedate.' <a href="'.$billurl.'">'.$invoicestr.'</a> ('.$amount.')';

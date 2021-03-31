@@ -27,12 +27,12 @@ $string['shop_bills:myaddinstance'] = 'Ajouter un bloc Mes Factures à Ma page';
 // Privacy.
 $string['privacy:metadata'] = 'Le bloc Mes Factures ne détient directement aucune donnée relative aux utilisateurs.';
 
-$string['blockname'] = 'Mes transactions';
+$string['blockname'] = 'Mes factures';
 $string['configshopinstance'] = 'Boutique';
 $string['configtitle'] = 'Titre du bloc';
 $string['leaveblanktohide'] = 'Laisser vide pour cacher le titre';
 $string['nobills'] = 'Aucune facture à votre nom';
 $string['noshops'] = 'Pas de boutiques dans ce site';
 $string['notconfigured'] = 'Ce bloc n\'est pas configuré. Une instance de boutique doit être désignée.';
-$string['pluginname'] = 'Mes factures';
+$string['pluginname'] = 'Boutique : Mes factures';
 $string['title'] = 'Titre';
