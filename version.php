@@ -29,8 +29,10 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->version   = 2016022500;        // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires  = 2022041900;        // Requires this Moodle version.
 $plugin->component = 'block_shop_bills'; // Full name of the plugin (used for diagnostics).
-$plugin->maturity = MATURITY_RC;
+$plugin->maturity = MATURITY_STABLE;
+$plugin->supported = [40,40];
 $plugin->release = '4.0.0 (Build 2016022500)';
+$plugin->dependencies = ['local_shop' => 2022090900];
 
 // Non moodle attributes.
 $plugin->codeincrement = '4.0.0000';
