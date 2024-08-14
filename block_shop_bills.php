@@ -14,34 +14,52 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
+ * Main block class
+ *
  * @package   block_shop_bills
- * @category  blocks
- * @author    Valery Fremaux (valery.fremaux@gmail.com)
+ * @author      Valery Fremaux <valery.fremaux@gmail.com>
+ * @copyright   2017 Valery Fremaux <valery.fremaux@gmail.com> (activeprolearn.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+/**
+ * Block class
+ */
 class block_shop_bills extends block_list {
 
+    /**
+     * Block standard init
+     */
     public function init() {
         $this->title = get_string('blockname', 'block_shop_bills');
         $this->version = 2013022200;
     }
 
+    /**
+     * Block applicable formats
+     */
     public function applicable_formats() {
-        return array('all' => false, 'my' => true, 'course' => true);
+        return ['all' => false, 'my' => true, 'course' => true];
     }
 
+    /**
+     * Instance specialisation
+     */
     public function specialization() {
         return false;
     }
 
+    /**
+     *Can we use multiple instances in the context ?
+     */
     public function instance_allow_multiple() {
         return true;
     }
 
+    /**
+     * Main block content
+     */
     public function get_content() {
         global $USER, $DB;
 
@@ -56,7 +74,7 @@ class block_shop_bills extends block_list {
             return $this->content;
         }
 
-        $this->content = new stdClass;
+        $this->content = new stdClass();
         $sql = "
             SELECT
                 b.*
@@ -75,7 +93,7 @@ class block_shop_bills extends block_list {
             foreach ($invoices as $invoice) {
                 $invoicedate = date('Y/m/d H:i', $invoice->emissiondate);
                 $invoicestr = $invoice->title;
-                $params = array('view' => 'bill', 'id' => $this->config->shopinstance, 'transid' => $invoice->transactionid);
+                $params = ['view' => 'bill', 'id' => $this->config->shopinstance, 'transid' => $invoice->transactionid];
                 $billurl = new moodle_url('/local/shop/front/view.php', $params);
                 $amount = sprintf('%0.2f', round($invoice->amount, 2));
                 $this->content->items[] = $invoicedate.' <a href="'.$billurl.'">'.$invoicestr.'</a> ('.$amount.')';
@@ -91,7 +109,7 @@ class block_shop_bills extends block_list {
         return $this->content;
     }
 
-    /*
+    /**
      * Hide the title bar when none set..
      */
     public function hide_header() {

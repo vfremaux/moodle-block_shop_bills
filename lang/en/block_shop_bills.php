@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Lang file
+ *
  * @package   block_shop_bills
  * @category  blocks
  * @author    Valery Fremaux (valery.fremaux@gmail.com)

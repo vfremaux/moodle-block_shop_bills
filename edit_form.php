@@ -15,9 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * form for instance edition
+ *
  * @package   block_shop_bills
- * @category  blocks
- * @author    Valery Fremaux (valery.fremaux@gmail.com)
+ * @author      Valery Fremaux <valery.fremaux@gmail.com>
+ * @copyright   2017 Valery Fremaux <valery.fremaux@gmail.com> (activeprolearn.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -27,8 +29,14 @@ require_once($CFG->dirroot.'/local/shop/classes/Shop.class.php');
 
 use local_shop\Shop;
 
+/**
+ * Instance edition form
+ */
 class block_shop_bills_edit_form extends block_edit_form {
 
+    /**
+     * specific definition
+     */
     protected function specific_definition($mform) {
         global $DB;
 
@@ -49,5 +57,4 @@ class block_shop_bills_edit_form extends block_edit_form {
             $mform->addElement('static', 'noshops', get_string('noshops', 'block_shop_bills'));
         }
     }
-
 }
