@@ -17,11 +17,13 @@
 /**
  * Plugin capabilities
  *
- * @package   block_shop
+ * @package   block_shop_bills
  * @author      Valery Fremaux <valery.fremaux@gmail.com>
  * @copyright   Valery Fremaux <valery.fremaux@gmail.com> (activeprolearn.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $capabilities = [
 
@@ -38,6 +40,6 @@ $capabilities = [
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
             'manager' => CAP_ALLOW,
-        ]
+        ],
     ],
 ];

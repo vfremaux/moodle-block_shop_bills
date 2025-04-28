@@ -51,7 +51,7 @@ class block_shop_bills extends block_list {
     }
 
     /**
-     *Can we use multiple instances in the context ?
+     * Can we use multiple instances in the context ?
      */
     public function instance_allow_multiple() {
         return true;
