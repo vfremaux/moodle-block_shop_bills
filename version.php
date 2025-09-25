@@ -35,3 +35,4 @@ $plugin->dependencies = ['local_shop' => 2025011400];
 
 // Non moodle attributes.
 $plugin->codeincrement = '4.5.0000';
+$plugin->privacy = 'public';
